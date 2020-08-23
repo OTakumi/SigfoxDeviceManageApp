@@ -4,46 +4,74 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SigfoxDeviceManageApp</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- CSS libraries -->
+    <link rel="stylesheet" href="~/lib/uikit-3.5.6/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="~/lib/uikit-3.5.6/dist/css/uikit-rtl.min.css" />
+
+    <!-- CSS files -->
     <link rel="stylesheet" href="~/css/min/style.min.css" />
 </head>
-<body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-page="/Index">SigfoxDeviceManageApp</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <partial name="_LoginPartial" />
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+<body cz-shortcut-listen="true">
+    <div class="uk-container uk-container-expand">
+        <nav class="uk-navbar">
+            <nav class="uk-navbar-left">
+                <p>Left</p>
+            </nav>
+            <nav class="uk-navbar-right">
+                <p>Right</p>
+            </nav>
+        </nav>
+    </div>
+    <div class="uk-width-1-2@s uk-width-2-5@m">
+        <ul class="uk-nav-default uk-nav-parent-icon" uk-nav="multiple: true">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li class="uk-parent">
+                <a href="#">Parent</a>
+                <ul class="uk-nav-sub">
+                    <li><a href="#">Sub item</a></li>
+                    <li>
+                        <a href="#">Sub item</a>
+                        <ul>
+                            <li><a href="#">Sub item</a></li>
+                            <li><a href="#">Sub item</a></li>
+                        </ul>
                     </li>
                 </ul>
-            </div>
-        </div>
-    </nav>
+            </li>
+            <li class="uk-parent">
+                <a href="#">Parent</a>
+                <ul class="uk-nav-sub">
+                    <li><a href="#">Sub item</a></li>
+                    <li><a href="#">Sub item</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 
-    <div class="container">
+    <div class="uk-container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
+        <div class="uk-card-footer">
             &copy; 2020 - SigfoxDeviceManageApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 
+    <!-- JavaScript libraries -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/uikit-3.5.6/dist/js/uikit.min.js"></script>
+    <script src="~/lib/uikit-3.5.6/dist/js/uikit-icons.min.js"></script>
+
+    <!-- JavaScript functions -->
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        console.log("JQuery version: " + $.fn.jquery);
+    </script>
 
     @RenderSection("Scripts", required: false)
 </body>

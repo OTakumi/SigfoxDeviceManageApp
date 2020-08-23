@@ -42,7 +42,7 @@ gulp.task("contact", () => {
 });
 
 gulp.task("minify", () => {
-    return gulp.src("./Styles/css/**/*.css")
+    return gulp.src("./wwwroot/css/**/style.css")
         .pipe(cssmin())
         .pipe(rename(
             "style.min.css"
