@@ -10,25 +10,26 @@
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+<table class="uk-table uk-table-divider uk-table-small uk-table-expand">
+    <caption></caption>
+    <thead style="text-align:left">
         <tr>
-            <th>
+            <th style="text-align:center">
                 @Html.DisplayNameFor(model => model.MovieModel[0].Title)
             </th>
-            <th>
+            <th style="text-align:center">
                 @Html.DisplayNameFor(model => model.MovieModel[0].ReleaseDate)
             </th>
-            <th>
+            <th style="text-align:center">
                 @Html.DisplayNameFor(model => model.MovieModel[0].Genre)
             </th>
-            <th>
+            <th style="text-align:center">
                 @Html.DisplayNameFor(model => model.MovieModel[0].Price)
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody style="text-align:left">
 @foreach (var item in Model.MovieModel) {
         <tr>
             <td>
