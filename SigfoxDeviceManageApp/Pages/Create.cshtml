@@ -5,3 +5,18 @@
 }
 
 <h1>Create Page</h1>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form asp-controller="Demo" asp-action="RegisterInput" method="post">
+    <!-- Input and Submit elements-->
+    Name: <input asp-for="Name" /><br />
+</form>
+<table class="uk-table">
+    <thead>
+        <tr>
+            <th>@Model.ViewData["Name"]</th>
+        </tr>
+    </thead>
+</table>
