@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SigfoxDeviceManageApp.Models;
 
 namespace SigfoxDeviceManageApp.Data
 {
@@ -12,5 +13,6 @@ namespace SigfoxDeviceManageApp.Data
             : base(options)
         {
         }
+        public DbSet<SigfoxDeviceManageApp.Models.DeviceDataModel> DeviceDataModel { get; set; }
     }
 }
