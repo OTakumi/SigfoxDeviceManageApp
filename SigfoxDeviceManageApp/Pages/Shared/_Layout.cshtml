@@ -21,6 +21,15 @@
                     <div class="uk-navbar-item uk-hidden@m">
                         <a class="uk-logo" href="#"><img class="custom-logo" src="img/dashboard-logo-white.svg" alt=""></a>
                     </div>
+                    @{/* Search Box */}
+                    <div class="uk-navbar-item uk-visible@s">
+                        <form action="dashboard.html" class="uk-search uk-search-default">
+                            <span data-uk-search-icon></span>
+                            <input class="uk-search-input search-field" type="search" placeholder="Search">
+                        </form>
+                    </div>
+
+                    @{/* 
                     <ul class="uk-navbar-nav uk-visible@m">
                         <li><a href="#">Accounts</a></li>
                         <li>
@@ -38,18 +47,13 @@
                                 </ul>
                             </div>
                         </li>
-                    </ul>
-                    <div class="uk-navbar-item uk-visible@s">
-                        <form action="dashboard.html" class="uk-search uk-search-default">
-                            <span data-uk-search-icon></span>
-                            <input class="uk-search-input search-field" type="search" placeholder="Search">
-                        </form>
-                    </div>
+                    </ul>*/}
+
                 </div>
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav">
-                        <li><a href="#" data-uk-icon="icon:user" title="Your profile" data-uk-tooltip></a></li>
-                        <li><a href="#" data-uk-icon="icon: settings" title="Settings" data-uk-tooltip></a></li>
+                        <li><a href="/Account" data-uk-icon="icon:user" title="Your profile" data-uk-tooltip></a></li>
+                        <li><a href="/Setting" data-uk-icon="icon: settings" title="Settings" data-uk-tooltip></a></li>
                         <li><a href="#" data-uk-icon="icon:  sign-out" title="Sign Out" data-uk-tooltip></a></li>
                         <li><a class="uk-navbar-toggle" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav" title="Offcanvas" data-uk-tooltip></a></li>
                     </ul>
@@ -66,8 +70,9 @@
         <div class="left-nav-wrap">
             <ul class="uk-nav uk-nav-default uk-nav-parent-icon" data-uk-nav>
                 <li class="uk-nav-header">ACTIONS</li>
-                <li><a href="/Create"><span data-uk-icon="icon: info" class="uk-margin-small-right"></span>Create</a></li>
-                <li><a href="/Privacy"><span data-uk-icon="icon: comments" class="uk-margin-small-right"></span>Privacy</a></li>
+                <li><a href="/"><span data-uk-icon="icon: home" class="uk-margin-small-right"></span>Home</a></li>
+                <li><a href="/Create"><span data-uk-icon="icon: pencil" class="uk-margin-small-right"></span>Create</a></li>
+                <li><a href="/Privacy"><span data-uk-icon="icon: lock" class="uk-margin-small-right"></span>Privacy</a></li>
                 <li class="uk-parent">
                     <a href="#"><span data-uk-icon="icon: thumbnails" class="uk-margin-small-right"></span>Templates</a>
                     <ul class="uk-nav-sub">
