@@ -20,7 +20,7 @@ namespace SigfoxDeviceManageApp.Pages.Movie
         }
 
         public IList<MovieModel> MovieModel { get;set; }
-
+        
         public async Task OnGetAsync()
         {
             MovieModel = await _context.MovieModel.ToListAsync();
