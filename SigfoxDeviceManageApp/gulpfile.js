@@ -41,9 +41,20 @@ gulp.task("contact", () => {
     done();
 });
 
+gulp.task("minify", () => {
+    return gulp.src("./Styles/css/**/*.css")
+        .pipe(cssmin())
+        .pipe(rename(
+            "style.min.css"
+        ))
+        .pipe(dest("./wwwroot/css/min/"));
+    done();
+});
+
 gulp.task("series",
     gulp.series(
         "less2css",
-        "contact"
+        "contact",
+        "minify"
     )
 );
