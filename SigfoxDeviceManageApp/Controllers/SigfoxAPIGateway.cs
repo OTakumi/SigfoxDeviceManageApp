@@ -14,7 +14,7 @@ namespace SigfoxDeviceManageApp.Controllers
         /// Getting Data from the Sigfox Cloud API.
         /// </summary>
         /// <returns>return jObject data</returns>
-        public static async Task<JObject> GetMessage(string deviceId, string loginId, string password)
+        public static async Task<JObject> GetMessage(string deviceId = "", string loginId = "", string password = "")
         {
             var messageUri = "https://api.sigfox.com/v2/devices/" + deviceId + "/messages";
 
