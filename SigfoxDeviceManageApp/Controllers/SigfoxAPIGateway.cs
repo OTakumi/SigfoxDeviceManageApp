@@ -11,5 +11,10 @@ namespace SigfoxDeviceManageApp.Controllers
         {
 
         }
+
+        private static bool RegisterDevice()
+        {
+            return true;
+        }
     }
 }
