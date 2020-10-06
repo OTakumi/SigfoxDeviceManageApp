@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +9,13 @@ using System.Threading.Tasks;
 
 namespace SigfoxDeviceManageApp.Controllers
 {
-    public class SigfoxAPIGateway
+    public class SigfoxAPIGatewayController : Controller
     {
         /// <summary>
         /// Getting Data from the Sigfox Cloud API.
         /// </summary>
         /// <returns>return jObject data</returns>
+        [HttpGet]
         public static async Task<JObject> GetMessage(string deviceId = "", string loginId = "", string password = "")
         {
             var messageUri = "https://api.sigfox.com/v2/devices/" + deviceId + "/messages";

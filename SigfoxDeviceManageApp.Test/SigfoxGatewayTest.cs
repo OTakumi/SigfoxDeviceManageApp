@@ -14,7 +14,7 @@ namespace SigfoxDeviceManageApp.Tests
         [Fact]
         public void MessageAPIResponseCheck()
         {
-            Assert.NotNull(SigfoxAPIGateway.GetMessage());
+            Assert.NotNull(SigfoxAPIGatewayController.GetMessage());
         }
     }
 }
