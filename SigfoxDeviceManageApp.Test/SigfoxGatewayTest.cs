@@ -1,4 +1,4 @@
-﻿using SigfoxDeviceManageApp.Controllers;
+﻿using SigfoxDeviceManageApp.Pages.Sigfox;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +14,7 @@ namespace SigfoxDeviceManageApp.Tests
         [Fact]
         public void MessageAPIResponseCheck()
         {
-            Assert.NotNull(SigfoxAPIGatewayController.GetMessage());
+            Assert.NotNull(DeviceMessagesModel.GetMessage());
         }
     }
 }

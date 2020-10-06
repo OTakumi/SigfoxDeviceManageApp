@@ -1,22 +1,46 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using SigfoxDeviceManageApp.Data;
+using SigfoxDeviceManageApp.Models;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json;
 
-namespace SigfoxDeviceManageApp.Controllers
+namespace SigfoxDeviceManageApp.Pages.Sigfox
 {
-    public class SigfoxAPIGatewayController : Controller
+    public class DeviceMessagesModel : PageModel
     {
-        /// <summary>
-        /// Getting Data from the Sigfox Cloud API.
-        /// </summary>
-        /// <returns>return jObject data</returns>
-        [HttpGet]
-        public static async Task<JObject> GetMessage(string deviceId = "", string loginId = "", string password = "")
+        private readonly SigfoxDeviceManageApp.Data.ApplicationDbContext _context;
+
+        public DeviceMessagesModel(SigfoxDeviceManageApp.Data.ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public DeviceDataModel DeviceDataModel { get; set; }
+
+        public async Task<IActionResult> OnGetAsync(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            DeviceDataModel = await _context.DeviceDataModel.FirstOrDefaultAsync(m => m.Id == id);
+
+            if (DeviceDataModel == null)
+            {
+                return NotFound();
+            }
+            return Page();
+        }
+
+        public static async Task<object> GetMessage(string deviceId = "", string loginId = "", string password = "")
         {
             var messageUri = "https://api.sigfox.com/v2/devices/" + deviceId + "/messages";
 
@@ -31,7 +55,7 @@ namespace SigfoxDeviceManageApp.Controllers
             request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic",
                                             Convert.ToBase64String(Encoding.ASCII.GetBytes(string.Format("{0}:{1}", loginId, password))));
 
-            JObject messageData;
+            string messageData;
 
             // Get data
             using (var httpClient = new HttpClient())
@@ -43,7 +67,7 @@ namespace SigfoxDeviceManageApp.Controllers
                 if (response.IsSuccessStatusCode)
                 {
                     Console.WriteLine("Basic Authorization is Succeeded");
-                    return messageData = JObject.Parse(await response.Content.ReadAsStringAsync());
+                    return messageData = "Get success";
                 }
                 else
                 {
@@ -51,11 +75,6 @@ namespace SigfoxDeviceManageApp.Controllers
                     return null;
                 }
             }
-        }
-
-        private static bool RegisterDevice()
-        {
-            return true;
         }
     }
 }
