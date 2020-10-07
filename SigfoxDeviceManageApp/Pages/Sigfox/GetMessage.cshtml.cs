@@ -11,8 +11,9 @@ namespace SigfoxDeviceManageApp.Pages.Sigfox
 {
     public class GetMessageModel : PageModel
     {
-        public void OnGet()
+        public async Task OnGetAsync()
         {
+            await GetMessage();
         }
 
         public static async Task<object> GetMessage(string deviceId = "", string loginId = "", string password = "")
@@ -41,6 +42,7 @@ namespace SigfoxDeviceManageApp.Pages.Sigfox
                 // If the authentication is successful, return the value obtained.
                 if (response.IsSuccessStatusCode)
                 {
+                    messageData = await response.Content.ReadAsStringAsync();
                     Console.WriteLine("Basic Authorization is Succeeded");
                     return messageData = "Get success";
                 }
