@@ -9,7 +9,6 @@ namespace SigfoxDeviceManageApp.Tests
         [Fact]
         public void HelloTest()
         {
-            Assert.Equal("Hello", StringOutput.Hello());
         }
     }
 }

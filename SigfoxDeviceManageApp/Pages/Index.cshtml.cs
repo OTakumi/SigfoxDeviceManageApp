@@ -17,9 +17,11 @@ namespace SigfoxDeviceManageApp.Pages
             _logger = logger;
         }
 
+        public string TimeNow { get; set; }
+
         public void OnGet()
         {
-
+            TimeNow = DateTime.Today.ToShortDateString();
         }
     }
 }

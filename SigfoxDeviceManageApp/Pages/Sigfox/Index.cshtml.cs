@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace SigfoxDeviceManageApp.Pages
+namespace SigfoxDeviceManageApp.Pages.Sigfox
 {
-    public class CreateModel : PageModel
+    public class IndexModel : PageModel
     {
         public void OnGet()
         {
